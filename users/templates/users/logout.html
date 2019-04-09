@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block style %}
+<style>
+  body{
+    background-image: url("{% static 'blog/images/signup.jpg' %}");
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+<h3>You have been Logged out</h3>
+  <div class="border-top pt-3">
+    <small class="text-muted"><a href="{% url 'login' %}">Login Again</a></small>
+  </div>
+{% endblock %}

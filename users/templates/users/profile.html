@@ -1,0 +1,26 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block style %}
+<style>
+  body{
+    background-image: url("{% static 'blog/images/signup.jpg' %}");
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+    <div class="content-section">
+    <div class="media">
+      <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+      <div class="media-body">
+        <h3 class="account-heading">{{ user.username }}</h3>
+        <p class="text-secondary">Email:   {{ user.email }}</p>
+        <p  class="text-secondary">Phone:  {{ user.profile.phone }}</p>
+        <p  class="text-secondary">County: {{ user.profile.county }}</p>
+      </div>
+    </div>
+    <!-- FORM HERE -->
+    </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block style %}
+<style>
+  body{
+    background-image: url("{% static 'blog/images/signup.jpg' %}");
+  }
+</style>
+{% endblock %}
+
+{% block body %}
+  <div class="content-section">
+    <form class=""  method="post">
+      {% csrf_token %}
+      <fieldset class="form-group">
+        <legend class="border-bottom mb-4">Join us Today</legend>
+        {{ form|crispy }}
+      </fieldset>
+      <div class="form-group">
+        <button type="submit" name="button" class="btn btn-outline-info">Signup <i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+      </div>
+    </form>
+    <div class="border-top pt-3">
+      <small class="text-muted">Already have an account? <a href="{% url 'login' %}" class="ml-2">Login</a></small>
+
+    </div>
+  </div>
+{% endblock %}
