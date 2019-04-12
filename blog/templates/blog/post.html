@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %} {% load crispy_forms_tags %} {% load static %} {% block style %}
+<style>
+    body {
+        background-image: url("{% static 'blog/images/signup.jpg' %}");
+    }
+</style>
+{% endblock %} {% block body %}
+<div class="content-section">
+    <form class="" method="post">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Create Post</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button type="submit" name="button" class="btn btn-outline-info">Post <i class="fa fa-sticky-note-o" aria-hidden="true"></i></button>
+        </div>
+    </form>
+</div>
+{% endblock %}

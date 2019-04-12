@@ -1,28 +1,28 @@
 <header class="site-header">
-  <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-    <div class="container">
-      <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">SGTek-Hub</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+            <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">SGTek-Hub</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarToggle">
-        <div class="navbar-nav mr-auto">
-          <a class="nav-item nav-link" href="{% url 'blog-home' %}"><i class="fa fa-home"></i>  Home</a>
-          <a class="nav-item nav-link" href="{% url 'blog-about' %}"><i class="fa fa-database" aria-hidden="true"></i> Quandl</a>
-          <a class="nav-item nav-link" href="{% url 'blog-about' %}"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
-        </div>
-        <!-- Navbar Right Side -->
-        <div class="navbar-nav">
-          {% if request.user.is_authenticated %}
-            <a href="{% url 'profile' %}"class="nav-item nav-link"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
-            <a href="{% url 'logout' %}"class="nav-item nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
-          {% else %}
-            <a class="nav-item nav-link" href="{% url 'login' %}"> <i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
-            <a class="nav-item nav-link" href="{% url 'register' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a>
-          {% endif %}
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="{% url 'blog-home' %}"><i class="fa fa-home"></i>  Home</a>
+                    <a class="nav-item nav-link" href="{% url 'blog-about' %}"><i class="fa fa-database" aria-hidden="true"></i> Quandl</a>
+                    <a class="nav-item nav-link" href="{% url 'blog-about' %}"><i class="fa fa-info-circle" aria-hidden="true"></i> About</a>
+                </div>
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    {% if request.user.is_authenticated %} {% if request.path == '/' %}
+                    <a href="{% url 'post-create' %}" class="nav-item nav-link"><i class="fa fa-sticky-note-o" aria-hidden="true"></i> New Post</a> {% endif %}
 
+                    <a href="{% url 'profile' %}" class="nav-item nav-link"><i class="fa fa-user" aria-hidden="true"></i> Profile</a>
+                    <a href="{% url 'logout' %}" class="nav-item nav-link"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a> {% else %}
+                    <a class="nav-item nav-link" href="{% url 'login' %}"> <i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+                    <a class="nav-item nav-link" href="{% url 'register' %}"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</a> {% endif %}
+
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </nav>
+    </nav>
 </header>
